@@ -1,0 +1,14 @@
+select * from user;
+select * from workout;
+select * from exercise;
+select * from exercisesforworkout;
+
+drop table user;
+drop table workout;
+drop table exercise;
+drop table exercisesforworkout;
+
+select * from user;
+select * from workout;
+select * from exercise;
+select * from workout_exercise;
