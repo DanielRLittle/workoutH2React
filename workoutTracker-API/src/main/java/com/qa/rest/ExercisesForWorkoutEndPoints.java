@@ -77,6 +77,17 @@ public class ExercisesForWorkoutEndPoints {
 		return Response.ok(efw).build();
 	}
 	
+	@GET
+	@Path("/efw/byExercise/{exercise_id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getExerciseByExercise(@PathParam("exercise_id") int id) {
+		if (efwr.findExerciseByExercise(id).equals(null)) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		List<ExercisesForWorkout> efw = efwr.findExerciseByExercise(id);
+		return Response.ok(efw).build();
+	}
+	
 	@PUT
 	@Consumes({"application/json"})
 	@Produces(MediaType.TEXT_PLAIN)

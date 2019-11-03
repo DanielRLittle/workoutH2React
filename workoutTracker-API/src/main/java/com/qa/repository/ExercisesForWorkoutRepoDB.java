@@ -48,6 +48,14 @@ public class ExercisesForWorkoutRepoDB implements ExercisesForWorkoutRepo {
 		List<ExercisesForWorkout> efw  = tq.getResultList();
 		return efw;
 	}
+	
+	public List<ExercisesForWorkout> findExerciseByExercise(int id) {
+		TypedQuery<ExercisesForWorkout> tq = em
+				.createQuery("Select efw from ExercisesForWorkout efw where exercise_id = '"
+						+ id + "'", ExercisesForWorkout.class);
+		List<ExercisesForWorkout> efw = tq.getResultList();
+		return efw;
+	}
 
 	@Transactional(value =  TxType.REQUIRED)
 	public ExercisesForWorkout changeExerciseDetails(int id, ExercisesForWorkout newExercise,
